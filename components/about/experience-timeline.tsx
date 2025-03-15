@@ -18,8 +18,8 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
       <div className="space-y-8">
         {experiences.map((exp, index) => (
           <div
-            key={exp.company}
-            className="relative pl-8 pb-8 border-l border-muted animate-fade-in"
+            key={index}
+            className="relative pl-8 pb-8 border-l border-gray-300 dark:border-gray-600 animate-fade-in"
             style={{ animationDelay: `${index * 200}ms` }}
           >
             <div className="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0" />
