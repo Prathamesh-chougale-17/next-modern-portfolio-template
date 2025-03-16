@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { SiLeetcode } from "react-icons/si";
-
 interface LeetCodeContestData {
   contestRating: number;
   contestParticipation: {

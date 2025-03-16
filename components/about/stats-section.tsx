@@ -21,7 +21,8 @@ interface StatsProps {
 
 export function StatsSection({ statItems }: StatsProps) {
   return (
-    <section className="container py-12 border-y">
+    <section className="py-12">
+      <h2 className="text-3xl font-bold mb-8">Stats</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {statItems.map((stat, index) => (
           <StatItem key={index} value={stat.value} label={stat.label} />
