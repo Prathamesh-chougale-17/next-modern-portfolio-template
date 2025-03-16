@@ -6,7 +6,7 @@ const ProjectPage = () => {
   const { projects } = en;
 
   return (
-    <section className="container py-12">
+    <section className="py-12">
       {/* Header Section */}
       {/* <div className="max-w-3xl mx-auto mb-16 text-center animate-fade-up">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
