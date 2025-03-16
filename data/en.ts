@@ -1,4 +1,5 @@
 export const en = {
+  leetcode_username: "prathameshchougale17", // Add your LeetCode username here to dynamically fetch your stats
   navItems: [
     { title: "Home", href: "/" },
     { title: "Projects", href: "/projects" },
@@ -143,6 +144,14 @@ export const en = {
           "Built responsive web applications and contributed to the company's core product development.",
       },
     ],
+    stats: {
+      statItems: [
+        { label: "Projects Completed", value: "25" },
+        { label: "Hackathon Participations", value: "12" },
+        // Add more stats as needed
+      ],
+      leetcodeRating: "1850+",
+    },
   },
   contact: {
     thoughtTitle: "Let's Create Something Amazing Together",

@@ -68,7 +68,7 @@ export async function submitContactForm(
     // Prepare email content
     const mailOptions = {
       from: process.env.EMAIL_SERVER_USER,
-      to: process.env.EMAIL_SERVER_USER,
+      to: process.env.EMAIL_ADMIN,
       subject: `Contact Form: ${subject}`,
       html: `
         <!DOCTYPE html>
