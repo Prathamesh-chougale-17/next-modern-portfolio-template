@@ -30,7 +30,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <Card
-      className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-up pt-0"
+      className="overflow-hidden hover:shadow-lg cursor-pointer transition-all duration-300 animate-fade-up pt-0"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="relative h-50 w-full">

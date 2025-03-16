@@ -23,7 +23,7 @@ function getIcon(iconName: string) {
 
 export function AchievementCard({ title, description, icon }: Achievement) {
   return (
-    <Card className="transition-all cursor-pointer hover:shadow-lg hover:scale-105">
+    <Card className="transition-all duration-300 cursor-pointer hover:shadow-blue-400/20 hover:border-blue-400/50 hover:scale-105">
       <CardHeader className="flex flex-row items-center gap-4">
         {getIcon(icon)}
         <CardTitle>{title}</CardTitle>
