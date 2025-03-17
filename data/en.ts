@@ -1,4 +1,4 @@
-export const en = {
+export const en: entype = {
   leetcode_username: "prathameshchougale17", // Add your LeetCode username here to dynamically fetch your stats
   navItems: [
     { title: "Home", href: "/" },
@@ -8,10 +8,10 @@ export const en = {
     { title: "Contact", href: "/contact" },
   ],
   hero: {
-    name: "John Doe",
-    title: "Full Stack Developer",
-    company: "Tech Innovations Inc.",
-    companyLink: "https://techinnovations.dev",
+    name: "Prathamesh Chougale",
+    title: "Software Engineer",
+    company: "HSBC",
+    companyLink: "https://hsbc.com",
     description:
       "Passionate developer focused on creating performant and accessible web applications using modern technologies like React, Next.js, and TypeScript.",
   },

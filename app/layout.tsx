@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { en } from "@/data/en";
 import { Toaster } from "sonner";
+import ChatButton from "@/components/layout/chat-button";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar navItems={en.navItems} />
           <main className="px-4 sm:px-6 md:px-8 lg:px-12">{children}</main>
+          <ChatButton />
           <Footer />
           <Toaster />
         </ThemeProvider>

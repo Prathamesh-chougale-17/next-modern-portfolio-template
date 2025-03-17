@@ -10,7 +10,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Portfolio. All rights reserved.
           </p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 mr-10">
           <Link
             href="https://twitter.com/username"
             target="_blank"
