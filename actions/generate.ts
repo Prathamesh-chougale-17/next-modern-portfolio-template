@@ -76,7 +76,7 @@ User question: ${message}`;
     };
   } finally {
     // Commented out to use connection pooling in production
-    // await client.close();
+    await client.close();
   }
 }
 
@@ -105,5 +105,8 @@ export async function getChatHistory() {
       messages: [],
       error: "Failed to fetch chat history",
     };
+  } finally {
+    // Commented out to use connection pooling in production
+    await client.close();
   }
 }

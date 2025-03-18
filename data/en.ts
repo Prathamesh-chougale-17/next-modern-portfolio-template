@@ -1,3 +1,4 @@
+import { entype } from "@/types/en";
 export const en: entype = {
   leetcode_username: "prathameshchougale17", // Add your LeetCode username here to dynamically fetch your stats
   navItems: [
@@ -9,7 +10,7 @@ export const en: entype = {
   ],
   hero: {
     name: "Prathamesh Chougale",
-    title: "Software Engineer",
+    title: "Software Engineer Intern",
     company: "HSBC",
     companyLink: "https://hsbc.com",
     description:

@@ -1,4 +1,4 @@
-interface entype {
+export interface entype {
   leetcode_username: string;
   navItems: {
     title: string;
