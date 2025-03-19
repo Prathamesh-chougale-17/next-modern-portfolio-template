@@ -6,7 +6,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Achievement } from "@/types/home";
-import { Trophy, Mic, Github } from "lucide-react";
 
 export function AchievementCard({ title, description, Icon }: Achievement) {
   return (
