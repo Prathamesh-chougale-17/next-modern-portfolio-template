@@ -1,3 +1,4 @@
+import { Icons } from "@/components/icons";
 import { entype } from "@/types/en";
 export const en: entype = {
   leetcode_username: "prathameshchougale17", // Add your LeetCode username here to dynamically fetch your stats
@@ -10,6 +11,7 @@ export const en: entype = {
   ],
   hero: {
     name: "Prathamesh Chougale",
+    image: "/placeholder.svg",
     title: "Software Engineer Intern",
     company: "HSBC",
     companyLink: "https://hsbc.com",
@@ -21,19 +23,19 @@ export const en: entype = {
       title: "Open Source Contributor",
       description:
         "Contributed to over 50 open source projects including React, Next.js, and various popular libraries.",
-      icon: "github",
+      Icon: Icons.gitHub,
     },
     {
       title: "Tech Conference Speaker",
       description:
         "Presented at 10+ international conferences on topics related to web performance and accessibility.",
-      icon: "mic",
+      Icon: Icons.mic,
     },
     {
       title: "Award-Winning Developer",
       description:
         "Received the Developer of the Year award at the 2023 Web Excellence Awards.",
-      icon: "trophy",
+      Icon: Icons.trophy,
     },
   ],
   projectsPage: {
@@ -105,22 +107,23 @@ export const en: entype = {
   about: {
     hero: {
       title: "About Me",
+      image: "/placeholder.svg",
       subtitle: "Full Stack Developer specializing in modern web technologies",
       description:
         "I'm a passionate developer with over 7 years of experience building web applications and digital experiences. My journey has taken me from startups to enterprise organizations, where I've honed my skills in creating performant, accessible, and beautiful interfaces.",
       skills: ["React", "TypeScript", "Next.js", "Node.js", "TailwindCSS"],
     },
     techSkills: [
-      { name: "React", level: 5, icon: "react" },
-      { name: "TypeScript", level: 5, icon: "typescript" },
-      { name: "Next.js", level: 4, icon: "nextjs" },
-      { name: "Node.js", level: 4, icon: "nodejs" },
-      { name: "Tailwind CSS", level: 5, icon: "tailwind" },
-      { name: "Python", level: 3, icon: "python" },
-      { name: "Docker", level: 3, icon: "docker" },
-      { name: "AWS", level: 4, icon: "aws" },
-      { name: "Databases", level: 4, icon: "database" },
-      { name: "Git/GitHub", level: 5, icon: "github" },
+      { name: "React", level: 5, icon: Icons.react },
+      { name: "TypeScript", level: 5, icon: Icons.typescript },
+      { name: "Next.js", level: 4, icon: Icons.nextjs },
+      { name: "Node.js", level: 4, icon: Icons.nodejs },
+      { name: "Tailwind CSS", level: 5, icon: Icons.tailwindcss },
+      { name: "Python", level: 3, icon: Icons.python },
+      { name: "Docker", level: 3, icon: Icons.docker },
+      { name: "AWS", level: 4, icon: Icons.aws },
+      { name: "Databases", level: 4, icon: Icons.database },
+      { name: "Git/GitHub", level: 5, icon: Icons.gitHub },
     ],
     experiences: [
       {
@@ -163,10 +166,10 @@ export const en: entype = {
     socials: {
       title: "Connect with me",
       links: [
-        { name: "Instagram", url: "https://instagram.com/username" },
-        { name: "Twitter", url: "https://twitter.com/username" },
-        { name: "LinkedIn", url: "https://linkedin.com/in/username" },
-        { name: "GitHub", url: "https://github.com/username" },
+        { name: Icons.instagram, url: "https://instagram.com/username" },
+        { name: Icons.x, url: "https://twitter.com/username" },
+        { name: Icons.linkedin, url: "https://linkedin.com/in/username" },
+        { name: Icons.gitHub, url: "https://github.com/username" },
       ],
     },
     form: {

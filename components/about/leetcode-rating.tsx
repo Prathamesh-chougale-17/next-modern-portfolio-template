@@ -10,7 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
-import { SiLeetcode } from "react-icons/si";
+import { Icons } from "../icons";
 interface LeetCodeContestData {
   contestRating: number;
   contestParticipation: {
@@ -92,10 +92,7 @@ async function LeetcodeRatingContent() {
           rel="noopener noreferrer"
         >
           {/* please use any icon */}
-          <SiLeetcode
-            size={20}
-            className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200"
-          />
+          <Icons.leetcode className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-200 h-4 w-4" />
         </Link>
       </div>
     </div>

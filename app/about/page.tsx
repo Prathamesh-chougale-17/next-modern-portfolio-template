@@ -9,6 +9,7 @@ export default function AboutPage() {
   return (
     <main className="py-12">
       <HeroSection
+        image={about.hero.image}
         title={about.hero.title}
         subtitle={about.hero.subtitle}
         description={about.hero.description}

@@ -4,6 +4,7 @@ import { HeroSectionProps } from "@/types/home";
 
 export function HeroSection({
   name,
+  image,
   title,
   company,
   description,
@@ -31,7 +32,7 @@ export function HeroSection({
       </div>
       <div className="relative w-64 h-64 md:w-80 md:h-80">
         <Image
-          src="/placeholder.svg"
+          src={image}
           alt={name}
           fill
           className="object-cover rounded-full hover:animate-pulse border-4 border-primary"

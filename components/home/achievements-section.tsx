@@ -15,7 +15,7 @@ export function AchievementsSection({
             key={index}
             title={achievement.title}
             description={achievement.description}
-            icon={achievement.icon}
+            Icon={achievement.Icon}
           />
         ))}
       </div>

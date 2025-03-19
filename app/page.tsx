@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection
+        image={en.hero.image}
         name={en.hero.name}
         title={en.hero.title}
         company={en.hero.company}

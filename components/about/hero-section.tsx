@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 
 interface HeroSectionProps {
+  image: string;
   title: string;
   subtitle: string;
   description: string;
@@ -9,6 +10,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({
+  image,
   title,
   subtitle,
   description,
@@ -41,7 +43,7 @@ export function HeroSection({
         <div className="lg:col-span-2 flex justify-center lg:justify-end">
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden animate-fade-in animation-delay-300">
             <Image
-              src="/placeholder.svg"
+              src={image}
               alt="Profile Image"
               fill
               className="object-cover"

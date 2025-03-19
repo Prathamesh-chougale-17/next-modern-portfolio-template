@@ -8,24 +8,11 @@ import {
 import { Achievement } from "@/types/home";
 import { Trophy, Mic, Github } from "lucide-react";
 
-function getIcon(iconName: string) {
-  switch (iconName) {
-    case "trophy":
-      return <Trophy className="h-10 w-10 text-primary" />;
-    case "mic":
-      return <Mic className="h-10 w-10 text-primary" />;
-    case "github":
-      return <Github className="h-10 w-10 text-primary" />;
-    default:
-      return null;
-  }
-}
-
-export function AchievementCard({ title, description, icon }: Achievement) {
+export function AchievementCard({ title, description, Icon }: Achievement) {
   return (
     <Card className="transition-all duration-300 cursor-pointer hover:shadow-blue-400/20 hover:border-blue-400/50 hover:scale-105">
       <CardHeader className="flex flex-row items-center gap-4">
-        {getIcon(icon)}
+        <Icon className="w-8 h-8 text-primary" />
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>

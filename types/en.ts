@@ -1,3 +1,6 @@
+import { IconProps } from "@/components/icons";
+import { JSX } from "react";
+
 export interface entype {
   leetcode_username: string;
   navItems: {
@@ -6,6 +9,7 @@ export interface entype {
   }[];
   hero: {
     name: string;
+    image: string;
     title: string;
     company: string;
     companyLink: string;
@@ -14,7 +18,7 @@ export interface entype {
   achievements: {
     title: string;
     description: string;
-    icon: string;
+    Icon: (props: IconProps) => JSX.Element;
   }[];
   projectsPage: {
     title: string;
@@ -33,6 +37,7 @@ export interface entype {
   about: {
     hero: {
       title: string;
+      image: string;
       subtitle: string;
       description: string;
       skills: string[];
@@ -40,7 +45,7 @@ export interface entype {
     techSkills: {
       name: string;
       level: number;
-      icon: string;
+      icon: (props: IconProps) => JSX.Element;
     }[];
     experiences: {
       title: string;
@@ -64,7 +69,7 @@ export interface entype {
     socials: {
       title: string;
       links: {
-        name: string;
+        name: (props: IconProps) => JSX.Element;
         url: string;
       }[];
     };

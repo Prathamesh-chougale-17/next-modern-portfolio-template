@@ -1,7 +1,10 @@
+import { IconProps } from "@/components/icons";
+import { JSX } from "react";
+
 export interface Achievement {
   title: string;
   description: string;
-  icon: string;
+  Icon: (props: IconProps) => JSX.Element;
 }
 
 export interface Project {
@@ -13,6 +16,7 @@ export interface Project {
 }
 
 export interface HeroSectionProps {
+  image: string;
   name: string;
   title: string;
   company: string;
