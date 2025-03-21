@@ -1,0 +1,16 @@
+version: "3"
+services:
+  web:
+    build: .
+    # image: prathameshchougale17/new-modern-template-nextjs:${VERSION:-latest} # Uncomment this line if you want to use the image from Docker Hub
+    ports:
+      - "3000:3000"
+    environment:
+      EMAIL_SERVER_HOST: "${EMAIL_SERVER_HOST}"
+      EMAIL_SERVER_PORT: "${EMAIL_SERVER_PORT}"
+      EMAIL_SERVER_USER: "${EMAIL_SERVER_USER}"
+      EMAIL_SERVER_PASSWORD: "${EMAIL_SERVER_PASSWORD}"
+      EMAIL_ADMIN: "${EMAIL_ADMIN}"
+      MONGODB_URI: "${MONGODB_URI}"
+      GEMINI_API_KEY: "${GEMINI_API_KEY}"
+      DATABASE_NAME: "${DATABASE_NAME}"
