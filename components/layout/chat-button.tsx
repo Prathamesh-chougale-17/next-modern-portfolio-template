@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X, Send, Mic, MicOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -28,8 +28,57 @@ export default function ChatButton() {
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [speechRecognition, setSpeechRecognition] =
+    useState<SpeechRecognition | null>(null);
+
   const messageRef = useRef<HTMLInputElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Initialize speech recognition
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      ("SpeechRecognition" in window || "webkitSpeechRecognition" in window)
+    ) {
+      const SpeechRecognitionAPI =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognitionAPI();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en-US";
+
+      recognition.onresult = (event: SpeechRecognitionEvent) => {
+        const transcript = Array.from(event.results)
+          .map((result) => result[0])
+          .map((result) => result.transcript)
+          .join("");
+
+        setMessage(transcript);
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error", event.error);
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        if (isListening) {
+          recognition.start();
+        }
+      };
+
+      setSpeechRecognition(recognition);
+    } else {
+      console.error("Speech recognition not supported in this browser");
+    }
+
+    return () => {
+      if (speechRecognition) {
+        speechRecognition.stop();
+      }
+    };
+  }, []);
 
   // Focus input when chat opens
   useEffect(() => {
@@ -37,13 +86,6 @@ export default function ChatButton() {
       messageRef.current.focus();
     }
   }, [isOpen]);
-
-  // Fetch chat history when opened
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     fetchChatHistory();
-  //   }
-  // }, [isOpen]);
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -69,26 +111,27 @@ export default function ChatButton() {
     }
   }, [isOpen]);
 
-  // const fetchChatHistory = async () => {
-  //   try {
-  //     const result = await getChatHistory();
+  const toggleListening = () => {
+    if (!speechRecognition) return;
 
-  //     if (result.success && result.messages && result.messages.length > 0) {
-  //       const formattedMessages = result.messages.map((msg) => ({
-  //         role: msg.role as "user" | "assistant",
-  //         content: msg.content as string,
-  //         timestamp: new Date(msg.timestamp),
-  //       }));
-  //       setMessages(formattedMessages);
-  //     }
-  //   } catch (error) {
-  //     console.error("Failed to fetch chat history:", error);
-  //   }
-  // };
+    if (isListening) {
+      speechRecognition.stop();
+      setIsListening(false);
+    } else {
+      speechRecognition.start();
+      setIsListening(true);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim() || isLoading) return;
+
+    // Stop speech recognition if it's active
+    if (isListening && speechRecognition) {
+      speechRecognition.stop();
+      setIsListening(false);
+    }
 
     const userMessage = {
       role: "user" as const,
@@ -233,15 +276,37 @@ export default function ChatButton() {
           </div>
 
           <form onSubmit={handleSubmit} className="flex gap-2">
+            <Button
+              type="button"
+              size="icon"
+              variant={isListening ? "destructive" : "outline"}
+              onClick={toggleListening}
+              className={cn(
+                "rounded-full h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0",
+                isListening ? "bg-red-500 hover:bg-red-600" : ""
+              )}
+              aria-label={isListening ? "Stop listening" : "Start listening"}
+              disabled={isLoading}
+            >
+              {isListening ? (
+                <MicOff className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              ) : (
+                <Mic className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              )}
+            </Button>
+
             <input
               ref={messageRef}
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Type your message..."
+              placeholder={
+                isListening ? "Speak now..." : "Type your message..."
+              }
               className="flex-1 p-2 sm:p-2.5 border dark:border-border/30 rounded-full text-xs sm:text-sm focus:ring-2 focus:ring-primary/30 focus:outline-none bg-background dark:bg-background/80"
               disabled={isLoading}
             />
+
             <Button
               type="submit"
               size="icon"
